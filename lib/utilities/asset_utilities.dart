@@ -1,0 +1,29 @@
+class AssetUtilities{
+  static String splash = "assets/images/splash.png";
+  static String splashLogo = "assets/images/splash_logo.png";
+  static String bg = "assets/images/bg.png";
+  static String appIcon = "assets/images/app_icon.png";
+  static String logout = "assets/images/log-out.png";
+  static String startShift = "assets/images/start_shift.png";
+  static String startShiftWhite = "assets/images/startShiftwhite.png";
+  static String endShift = "assets/images/end_shift.png";
+  static String dayOff = "assets/images/day_off.png";
+  static String totalAttendance = "assets/images/total_attendance.png";
+  static String selectedHome = "assets/images/selected_home.png";
+  static String unSelectedHome = "assets/images/unselected_home.png";
+  static String selectedMenu = "assets/images/selected_menu.png";
+  static String unSelectedMenu = "assets/images/unselected_menu.png";
+  static String selectedUser = "assets/images/selected_user.png";
+  static String unselectedUser = "assets/images/unselected_user.png";
+  static String successfully = "assets/images/success.png";
+  static String camera = "assets/images/camera.png";
+  static String gallery = "assets/images/gallery.png";
+  static String faceLogo = "assets/images/face_logo.png";
+  static String recognitionLogo = "assets/images/recognition.png";
+  static String cameraLight  = "assets/images/Camera_light.png";
+  static String done  = "assets/images/done.png";
+  static String remove  = "assets/images/remove.png";
+  static String selectedEmp = "assets/images/selected_emp.png";
+  static String unSelectedEmp = "assets/images/unselected_emp.png";
+  static String splashBG = "assets/images/spalshBG.png";
+}

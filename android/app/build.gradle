@@ -1,0 +1,84 @@
+plugins {
+    id 'org.jetbrains.kotlin.android' version '2.0.21' // Use a compatible Kotlin version
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    // id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+// Only define these properties once
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace "com.faceaxishr.ae"
+    compileSdk 34
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8' // Update to match the Java version
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.faceaxishr.ae"
+        minSdkVersion 23
+        targetSdkVersion 34 // Update to match compileSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias'] ?: 'hrms'
+            keyPassword keystoreProperties['keyPassword'] ?: '123456'
+            storeFile file(keystoreProperties['storeFile'] ?: '/Users/SoorajPc/development/Desktop/Production_Project/hrms_master/keys/keystore.jks')
+            storePassword keystoreProperties['storePassword'] ?: '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.release
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Ensure this matches the Kotlin version
+}
